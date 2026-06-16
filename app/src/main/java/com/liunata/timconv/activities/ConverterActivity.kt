@@ -19,6 +19,8 @@ import com.liunata.timconv.converters.fisik.SpeedConverter
 import com.liunata.timconv.converters.fisik.TemperatureConverter
 import com.liunata.timconv.converters.fisik.TimeConverter
 import com.liunata.timconv.converters.fisik.VolumeConverter
+import com.liunata.timconv.converters.`fun`.MorseCodeConverter
+import com.liunata.timconv.converters.`fun`.RomanNumeralConverter
 import com.liunata.timconv.converters.komputer.ASCIIConverter
 import com.liunata.timconv.converters.komputer.DataStorageConverter
 import com.liunata.timconv.converters.komputer.InternetSpeedConverter
@@ -59,7 +61,8 @@ class ConverterActivity : AppCompatActivity() {
         txtConverterName.text = converterName
         when(converterName){
             "ASCII",
-            "Text Encoding" -> {
+            "Text Encoding",
+            "Morse Code" -> {
                 etValue.inputType =
                     InputType.TYPE_CLASS_TEXT
             }
@@ -88,6 +91,8 @@ class ConverterActivity : AppCompatActivity() {
             "Power" -> ConverterData.powerUnits
             "Frequency" -> ConverterData.frequencyUnits
             "Angle" -> ConverterData.angleUnits
+            "Roman Numeral" -> ConverterData.romanNumeralUnits
+            "Morse Code" -> ConverterData.morseCodeUnits
             else -> emptyList()
         }
         val adapter = ArrayAdapter(
@@ -111,29 +116,59 @@ class ConverterActivity : AppCompatActivity() {
             val to = spTo.selectedItem.toString()
 
             if (converterName == "ASCII") {
+
                 val result = if(from == "Text to ASCII") {
                     ASCIIConverter.textToAscii(input)
                 } else {
                     ASCIIConverter.asciiToText(input)
                 }
-                txtResult.text =
-                    "Result : ${formatter.format(result)}"
+
+                txtResult.text = "Result : $result"
+
                 return@setOnClickListener
             }
             if (converterName == "Text Encoding") {
+
                 val result = if(from == "Encode") {
                     TextEncodingConverter.encode(input)
                 } else {
                     TextEncodingConverter.decode(input)
                 }
-                txtResult.text =
-                    "Result : ${formatter.format(result)}"
+
+                txtResult.text = "Result : $result"
+
                 return@setOnClickListener
             }
             if (converterName == "Number System") {
                 val result = NumberSystemConverter.convert(input, from, to)
                 txtResult.text =
-                    "Result : ${formatter.format(result)}"
+                    "Result : $result"
+                return@setOnClickListener
+            }
+
+            if (converterName == "Roman Numeral") {
+
+                val number = input.toIntOrNull()
+
+                if(number == null){
+                    txtResult.text = "Masukkan angka"
+                    return@setOnClickListener
+                }
+
+                val result =
+                    RomanNumeralConverter.convert(number)
+
+                txtResult.text = "Result : $result"
+
+                return@setOnClickListener
+            }
+            if (converterName == "Morse Code") {
+
+                val result =
+                    MorseCodeConverter.textToMorse(input)
+
+                txtResult.text = "Result : $result"
+
                 return@setOnClickListener
             }
             val value =

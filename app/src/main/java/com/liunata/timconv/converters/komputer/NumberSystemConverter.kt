@@ -8,19 +8,26 @@ object NumberSystemConverter {
         to: String
     ): String {
 
-        val decimalValue = when(from) {
+        val decimalValue = try {
 
-            "Binary" ->
-                value.toInt(2)
+            when(from) {
 
-            "Octal" ->
-                value.toInt(8)
+                "Binary" ->
+                    value.toInt(2)
 
-            "Hexadecimal" ->
-                value.toInt(16)
+                "Octal" ->
+                    value.toInt(8)
 
-            else ->
-                value.toInt()
+                "Hexadecimal" ->
+                    value.toInt(16)
+
+                else ->
+                    value.toInt()
+            }
+
+        } catch (e: Exception) {
+
+            return "Invalid Input"
         }
 
         return when(to) {

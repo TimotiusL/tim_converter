@@ -150,4 +150,12 @@ object ConverterData {
         "Europe/London",
         "America/New_York"
     )
+
+    val romanNumeralUnits = listOf(
+        "Number to Roman"
+    )
+
+    val morseCodeUnits = listOf(
+        "Text to Morse"
+    )
 }
