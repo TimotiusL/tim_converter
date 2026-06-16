@@ -37,6 +37,37 @@ class CategoryActivity : AppCompatActivity() {
                 Converter("Text Encoding")
             )
 
+            "Financial" -> listOf(
+                Converter("Currency"),
+                Converter("Discount"),
+                Converter("Interest")
+            )
+
+            "Science" -> listOf(
+                Converter("Pressure"),
+                Converter("Energy"),
+                Converter("Power"),
+                Converter("Frequency"),
+                Converter("Angle")
+            )
+
+            "Date & Time" -> listOf(
+                Converter("Age Calculator"),
+                Converter("Date Difference"),
+                Converter("Time Zone Converter")
+            )
+
+            "Fun" -> listOf(
+                Converter("Morse Code"),
+                Converter("RGB"),
+                Converter("Roman Numeral")
+            )
+
+            "Daily Life" -> listOf(
+                Converter("Cooking"),
+                Converter("Shoe Size")
+            )
+
             else -> emptyList()
         }
         val txtCategory = findViewById<TextView>(R.id.txtCategory)

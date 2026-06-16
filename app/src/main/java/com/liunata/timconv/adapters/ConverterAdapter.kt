@@ -8,6 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.liunata.timconv.activities.ConverterActivity
 import com.liunata.timconv.R
+import com.liunata.timconv.activities.AgeActivity
+import com.liunata.timconv.activities.DateDifferenceActivity
+import com.liunata.timconv.activities.DiscountActivity
+import com.liunata.timconv.activities.InterestActivity
+import com.liunata.timconv.activities.TimeZoneActivity
 import com.liunata.timconv.models.Converter
 
 class ConverterAdapter(
@@ -41,17 +46,39 @@ class ConverterAdapter(
 
         holder.itemView.setOnClickListener {
 
-            val intent = Intent(
-                holder.itemView.context,
-                ConverterActivity::class.java
-            )
+            val context = holder.itemView.context
 
-            intent.putExtra(
-                "converter",
-                converter.name
-            )
+            val intent = when (converter.name) {
 
-            holder.itemView.context.startActivity(intent)
+                "Discount" ->
+                    Intent(context, DiscountActivity::class.java)
+
+                "Interest" ->
+                    Intent(context, InterestActivity::class.java)
+
+                "Age Calculator" ->
+                    Intent(context, AgeActivity::class.java)
+
+                "Date Difference" ->
+                    Intent(context, DateDifferenceActivity::class.java)
+
+                "Time Zone Converter" ->
+                    Intent(context, TimeZoneActivity::class.java)
+
+                else -> {
+                    Intent(
+                        context,
+                        ConverterActivity::class.java
+                    ).apply {
+                        putExtra(
+                            "converter",
+                            converter.name
+                        )
+                    }
+                }
+            }
+
+            context.startActivity(intent)
         }
     }
 

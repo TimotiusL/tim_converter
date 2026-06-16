@@ -1,4 +1,12 @@
 package com.liunata.timconv.converters.finansial
 
-class DiscountCalculator {
+object DiscountCalculator {
+
+    fun calculate(
+        price: Double,
+        discount: Double
+    ): Double {
+
+        return price - (price * discount / 100)
+    }
 }

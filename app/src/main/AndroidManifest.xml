@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TimConv">
         <activity
+            android:name=".activities.TimeZoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DateDifferenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AgeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.InterestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DiscountActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ConverterActivity"
             android:exported="false" />
         <activity

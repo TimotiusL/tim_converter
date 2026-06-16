@@ -98,4 +98,56 @@ object ConverterData {
         "Encode",
         "Decode"
     )
+
+    val currencyUnits = listOf(
+        "IDR",
+        "USD",
+        "EUR",
+        "JPY",
+        "SGD"
+    )
+
+    val pressureUnits = listOf(
+        "Pascal",
+        "Kilopascal",
+        "Bar",
+        "PSI",
+        "Atmosphere"
+    )
+
+    val energyUnits = listOf(
+        "Joule",
+        "Kilojoule",
+        "Calorie",
+        "Kilocalorie",
+        "kWh"
+    )
+
+    val powerUnits = listOf(
+        "Watt",
+        "Kilowatt",
+        "Megawatt",
+        "Horsepower"
+    )
+
+    val frequencyUnits = listOf(
+        "Hertz",
+        "Kilohertz",
+        "Megahertz",
+        "Gigahertz"
+    )
+
+    val angleUnits = listOf(
+        "Degree",
+        "Radian",
+        "Gradian"
+    )
+
+    val timeZoneUnits = listOf(
+        "Asia/Jakarta",
+        "Asia/Singapore",
+        "Asia/Tokyo",
+        "Europe/London",
+        "America/New_York"
+    )
 }
